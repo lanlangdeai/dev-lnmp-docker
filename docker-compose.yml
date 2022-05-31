@@ -1,0 +1,16 @@
+version: "3.9"
+services:
+  web:
+    image: 2233466866/lnmp:newest
+    ports:
+      - "80:80"
+      - "443:443"
+      - "3367:3306"
+      - "6388:6379"
+    volumes:
+      - ./wwwroot:/www
+      # - ./docker/mysql:/data/mysql
+      - ./docker/nginx/nginx.conf:/usr/local/nginx/conf/nginx.conf
+    privileged: true
+    container_name: lnmp
+    restart: always
